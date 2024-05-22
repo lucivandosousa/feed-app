@@ -1,4 +1,4 @@
-import { Avatar, Box, HStack, Icon, Pressable, FlatList, Divider } from 'native-base'
+import { Avatar, Box, HStack, Icon, Pressable, FlatList, Divider, ScrollView } from 'native-base'
 import React from 'react'
 
 import { Feather } from '@expo/vector-icons'
@@ -48,15 +48,17 @@ export default function Home() {
         />
       </Box>
 
-      <Divider mb={4}/>
+      <Divider mb={4} />
 
-      <Box paddingX={4}>
-        <FlatList
-          data={dataFeed}
-          renderItem={({ item }) => <Feed data={item} />}
-          showsVerticalScrollIndicator={false}
-        />
-      </Box>
+      <ScrollView>
+        <Box paddingX={4}>
+          <FlatList
+            data={dataFeed}
+            renderItem={({ item }) => <Feed data={item} />}
+            showsVerticalScrollIndicator={false}
+          />
+        </Box>
+      </ScrollView>
     </Box>
   )
 }
