@@ -2,8 +2,13 @@ import { Box, Heading, Icon, Image, Text } from 'native-base'
 import React from 'react'
 
 import { Feather } from "@expo/vector-icons"
+import { IFeed } from '../../interfaces/IFeed'
 
-export default function Feed({ data }) {
+interface FeedProps {
+  data: IFeed
+}
+
+export default function Feed({ data }: FeedProps) {
   return (
     <Box flex={1} flexDirection={'column'} marginBottom={4} backgroundColor={"#fff"} padding={2} borderRadius={4}>
       <Box>

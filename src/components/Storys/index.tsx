@@ -1,7 +1,12 @@
 import { Box, Image } from 'native-base'
 import React from 'react'
+import { IStorys } from '../../interfaces/IStorys'
 
-export default function Storys({ data }) {
+interface StorysProps {
+  data: IStorys
+}
+
+export default function Storys({ data }: StorysProps) {
   return (
     <Box flex={1} mb={4} padding={2} borderRadius={4}>
       <Box
