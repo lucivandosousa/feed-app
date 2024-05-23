@@ -1,5 +1,5 @@
 import React from "react";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, StatusBar } from "native-base";
 import Home from "./src/pages";
 
 import { LinearGradient } from "expo-linear-gradient"
@@ -13,6 +13,7 @@ const config = {
 export default function App() {
   return (
     <NativeBaseProvider config={config}>
+      <StatusBar backgroundColor={"#000"}/>
       <Home />
     </NativeBaseProvider>
   );
