@@ -3,10 +3,10 @@ import React from 'react'
 
 import { Feather } from '@expo/vector-icons'
 
-import { dataStorys } from '../utils/dataStorys'
-import { dataFeed } from '../utils/dataFeed'
-import Storys from '../components/Storys'
-import Feed from '../components/Feed'
+import { dataStorys } from '../../utils/dataStorys'
+import { dataFeed } from '../../utils/dataFeed'
+import Storys from '../../components/Storys'
+import Feed from '../../components/Feed'
 
 export default function Home() {
   return (
