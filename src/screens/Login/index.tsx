@@ -3,7 +3,7 @@ import { Pressable, TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 import { useState } from "react";
 
-export default function Login() {
+export default function Login({ navigation }) {
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -56,7 +56,7 @@ export default function Login() {
             <Text fontSize="sm" color="coolGray.600">
               Não tem uma conta?{" "}
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("CadastroUser")}>
               <Text color={"blue.700"}>Cadastre-se</Text>
             </TouchableOpacity>
           </HStack>
