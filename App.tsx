@@ -1,9 +1,9 @@
 import React from "react";
 import { NativeBaseProvider, StatusBar } from "native-base";
-import Home from "./src/pages/Home";
+import Home from "./src/screens/Home";
 
 import { LinearGradient } from "expo-linear-gradient"
-import Login from "./src/pages/Login";
+import Login from "./src/screens/Login";
 
 const config = {
   dependencies: {
