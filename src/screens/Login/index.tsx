@@ -30,11 +30,10 @@ export default function Login({ navigation }) {
         Bem-vindo
       </Heading>
       <Box>
-        <VStack w={"100%"} paddingX={10}>
+        <VStack w={"100%"} paddingX={10} space={2}>
           <Input
             placeholder="Email"
             w={"100%"}
-            marginBottom={5}
             InputLeftElement={
               <Icon
                 as={MaterialIcons}
@@ -49,7 +48,6 @@ export default function Login({ navigation }) {
           <Input
             placeholder="Senha"
             w={"100%"}
-            marginBottom={5}
             type={showPassword ? "text" : "password"}
             InputLeftElement={
               <Icon
