@@ -50,15 +50,13 @@ export default function Home() {
 
       <Divider mb={4} />
 
-      <ScrollView>
-        <Box paddingX={4}>
-          <FlatList
-            data={dataFeed}
-            renderItem={({ item }) => <Feed data={item} />}
-            showsVerticalScrollIndicator={false}
-          />
-        </Box>
-      </ScrollView>
+      <Box paddingX={4}>
+        <FlatList
+          data={dataFeed}
+          renderItem={({ item }) => <Feed data={item} />}
+          showsVerticalScrollIndicator={false}
+        />
+      </Box>
     </Box>
   )
 }
