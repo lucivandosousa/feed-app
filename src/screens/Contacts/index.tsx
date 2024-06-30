@@ -6,11 +6,9 @@ export default function Contacts() {
       <Heading size="xl" fontWeight="600" color="blue.900" textAlign={"center"} marginBottom={10}>
         Contato
       </Heading>
-      <Box>
-        <VStack w={"100%"} paddingX={10} space={2}>
-          <Text>E-mail: federal@gmail.com</Text>
-          <Text>Telefone: 190</Text>
-        </VStack>  
+      <Box borderWidth={1} borderColor={'blueGray.400'} borderRadius={10} p={20}>
+        <Text>E-mail: federal@gmail.com</Text>
+        <Text>Telefone: 190</Text>
       </Box>
     </VStack>
   )
