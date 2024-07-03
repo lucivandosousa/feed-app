@@ -1,6 +1,5 @@
 import { Button, CheckIcon, Heading, Input, Select, VStack } from 'native-base'
 import { useState } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function CadastroUser({ navigation }) {
 
@@ -17,9 +16,7 @@ export default function CadastroUser({ navigation }) {
   }
 
   async function handleSubmit() {
-    console.log(formData) // Remover
-    await AsyncStorage.setItem("userData", JSON.stringify(formData))
-    navigation.navigate('Login');
+    navigation.navigate('Preferences', { userData: formData });
   }
 
   return (
@@ -68,7 +65,14 @@ export default function CadastroUser({ navigation }) {
         w={'full'}
         onPress={handleSubmit}
       >
-        Concluir
+        Avançar
+      </Button>
+      <Button
+        colorScheme={"indigo"}
+        w={'full'}
+        onPress={() => navigation.navigate("Login")}
+      >
+        Cancelar
       </Button>
     </VStack>
   )
