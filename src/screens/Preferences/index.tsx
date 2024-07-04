@@ -1,13 +1,11 @@
-import { Box, Button, Checkbox, Heading, VStack } from "native-base";
+import { Box, Button, Checkbox, Heading, VStack, Text } from "native-base";
 import { useState } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Preferences({ route, navigation }) {
 
   const [selectedPreferences, setSelectedPreferences] = useState([])
-
   const { userData } = route.params
-
   const preferences = ['Esportes', 'Tecnologia', 'Música', 'Cinema', 'Gastronomia']
 
   function handleCheckboxChange(value) {
@@ -15,7 +13,7 @@ export default function Preferences({ route, navigation }) {
       if (prev.includes(value)) {
         return prev.filter((item) => item !== value);
       } else {
-        return [...prev, value];
+        return [...prev, value]
       }
     })
   }
@@ -23,50 +21,41 @@ export default function Preferences({ route, navigation }) {
   async function handleSubmit() {
     userData.preferencias = selectedPreferences
     await AsyncStorage.setItem("userData", JSON.stringify(userData))
-    navigation.navigate('Login');
+    navigation.navigate('Login')
   }
 
   return (
-    <VStack flex={1} alignItems={"center"} justifyContent={"center"}>
-      <Heading size="xl" fontWeight="600" color="blue.900" textAlign={"center"} marginBottom={10}>
+    <VStack flex={1} alignItems="center" justifyContent="center" p={4} bg="blueGray.50">
+      <Heading size="xl" fontWeight="600" color="blue.700" textAlign="center" mb={8}>
         Preferências de conteúdo
       </Heading>
-      {
-        userData ? (
-          <Box w={"full"}>
-            <VStack paddingX={10} space={2}>
-              <Box mb={10}>
-                {preferences.map(pref => (
-                  <Checkbox
-                    key={pref}
-                    value={pref}
-                    isChecked={selectedPreferences.includes(pref)}
-                    onChange={() => handleCheckboxChange(pref)}
-                  >
-                    {pref}
-                  </Checkbox>
-                ))}
-              </Box>
-              <Button
-                colorScheme={"indigo"}
-                w={'full'}
-                onPress={handleSubmit}
+      {userData ? (
+        <Box w="90%" bg="white" borderRadius={8} p={4} borderWidth={1} borderColor="blueGray.300" shadow={2}>
+          <VStack space={4}>
+            <Text fontSize="md" color="blueGray.800" mb={4}>Selecione suas preferências:</Text>
+            {preferences.map(pref => (
+              <Checkbox
+                key={pref}
+                value={pref}
+                isChecked={selectedPreferences.includes(pref)}
+                onChange={() => handleCheckboxChange(pref)}
+                _checked={{ bg: "blue.500", borderColor: "blue.500" }}
+                _text={{ fontSize: "md", color: "blueGray.800" }}
               >
-                Concluir
-              </Button>
-              <Button
-                colorScheme={"indigo"}
-                w={'full'}
-                onPress={() => navigation.navigate("CadastroUser")}
-              >
-                Voltar
-              </Button>
-            </VStack>
-          </Box>
-        ) : (
-          null
-        )
-      }
+                {pref}
+              </Checkbox>
+            ))}
+            <Button colorScheme="indigo" onPress={handleSubmit} mt={4}>
+              Concluir
+            </Button>
+            <Button colorScheme="indigo" onPress={() => navigation.navigate("CadastroUser")} mt={2}>
+              Voltar
+            </Button>
+          </VStack>
+        </Box>
+      ) : (
+        <Text fontSize="md" color="blueGray.800">Carregando...</Text>
+      )}
     </VStack>
   )
 }
